@@ -135,7 +135,11 @@ class KeyStr{
 
     changeKey(key, str){
         // CHANGE THE REAL KEY
-        this.key = this.strToArr(key, str);
+        if(typeof key == 'string'){
+            this.key = this.strToArr(key, str);
+        }else{
+            this.key = key;
+        }
     }
     /* ============
 
@@ -153,7 +157,11 @@ class KeyStr{
 
         // IF tmpkey EXIST CHOOSE THE tmpkey
         if(tmpkey){
-            key = this.strToArr(tmpkey[0], tmpkey[1]);
+            if(typeof key == 'string'){
+                key = this.strToArr(tmpkey[0], tmpkey[1]);
+            }else{
+                key = tmpkey;
+            }
         }else{
             key = this.key;
         }
@@ -194,9 +202,12 @@ class KeyStr{
         // =================
         var key, index, charcode, eChar, eStr; // INIT THE KEY FOR ENCRYPT
 
-        // IF tmpkey EXIST CHOOSE THE tmpkey
         if(tmpkey){
-            key = this.strToArr(tmpkey[0], tmpkey[1]);
+            if(typeof key == 'string'){
+                key = this.strToArr(tmpkey[0], tmpkey[1]);
+            }else{
+                key = tmpkey;
+            }
         }else{
             key = this.key;
         }

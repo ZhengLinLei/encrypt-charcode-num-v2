@@ -38,7 +38,7 @@ If you are going to use `node`, please remove the comment from the main script f
 
 ## 1. <a name="keystr"></a> new KeyStr(:key, :str)
 
-First want to init a variable
+First need to init a variable
 ```javascript
 let ClassChar = new KeyStr([...])
 ```
@@ -151,6 +151,62 @@ console.log(CharVar.dencryptStr('\oy>yn?', ['20 10 30', ' ']))
 ```
 
 ## 2. <a name="ownchar"></a> new OwnCharList(:type)
+
+```javascript
+let Alphabet = new OwnCharList([...]);
+```
+
+### 2.1. <a name="param"></a> Parameters
+
+The paramateres allowed are
+```js
+/* ===========
+        type: ['utf-7', 'utf-8', 'utf-16', 'utf-32', 'own']
+
+        Default: 'utf-7'
+============= */
+
+let AlphabetA = new OwnCharList('utf-32');
+
+
+// And the own charlist
+let AlphabetB = new OwnCharList('own');
+// After declared the variable, create the list
+```
+
+### 2.2. <a name="ownlist"></a> Create Own List
+
+```js
+// And the own charlist
+let AlphabetB = new OwnCharList('own');
+// After declared the variable, create the list
+
+let charlist = 'asdfghjklqwertyuiopzxcvbnm'.split('');
+AlphabetB.createList(charlist);
+
+
+// Import the Alphabet to Encrypter
+let Encode = new KeyStr([0, 2, 1]);
+Encode.importCharList(AlphabetB);
+```
+
+
+## 3. <a name="code"></a> Example
+```js
+let CharVar = new KeyStr('0');
+
+// let Chacode = new OwnCharList('utf-8');
+
+let ownlist = 'abcde'.split('');
+// let ownlist = ['b', 'a', 'c', 'd', 'f', 'e', 'g', 'l', 'w', 'h', 'j', 's', 'i', 'o', 'r', ' '];
+let Charcode = new OwnCharList('own');
+Charcode.createList(ownlist);
+
+CharVar.importCharList(Charcode);
+
+console.log(CharVar.encryptStr('e', ['13 8', ' ']));
+console.log(CharVar.dencryptStr('c', ['13 8', ' ']), CharVar.charList.range);
+```
 
 <br><br><br>
 
