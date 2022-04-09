@@ -171,7 +171,7 @@ class KeyStr{
         charcode.forEach(el =>{
 
             let result = el + key[index];
-            result = result >= this.charList.range ? Math.abs((result - this.charList.range) + (this.charList.type != 'own' ? 32 : 0)) : result; // Remove 32 first empty char
+            result = result >= this.charList.range ? Math.abs((result) % this.charList.range) + (this.charList.type != 'own' ? 32 : 0) : result; // Remove 32 first empty char
             eChar.push(result);
 
             //BACK TO INDEX 0
@@ -182,7 +182,6 @@ class KeyStr{
             }
         });
 
-    
         // ENCRYPTED CHARCODE TO TEXT
         eStr = '';
         eChar.forEach(el => eStr += this.charList.type == 'own' ? this.charList.list[el] : String.fromCharCode(el));
@@ -214,7 +213,7 @@ class KeyStr{
         // REMOVE THE KEY
         charcode.forEach(el =>{
             let result = el - key[index];
-            result = result < (this.charList.type != 'own' ? 32 : 0) ? Math.abs((result + this.charList.range) - (this.charList.type != 'own' ? 32 : 0)) : result; // Remove 32 first empty char
+            result = result < (this.charList.type != 'own' ? 32 : 0) ? (Math.abs(result % this.charList.range) + (!Math.abs(result % this.charList.range) ? 0 : 1)) - (this.charList.type != 'own' ? 32 : 0) : result; // Remove 32 first empty char
             eChar.push(result);
 
             //BACK TO INDEX 0
@@ -238,15 +237,15 @@ class KeyStr{
 
 // let Chacode = new OwnCharList('utf-8');
 
-
+// let ownlist = 'abcde'.split('');
 // let ownlist = ['b', 'a', 'c', 'd', 'f', 'e', 'g', 'l', 'w', 'h', 'j', 's', 'i', 'o', 'r', ' '];
 // let Charcode = new OwnCharList('own');
 // Charcode.createList(ownlist);
 
 // CharVar.importCharList(Charcode);
 
-// console.log(CharVar.encryptStr('world', ['4 5 3', ' ']));
-// console.log(CharVar.dencryptStr('icasw', ['4 5 3', ' ']), CharVar.charList.range);
+// console.log(CharVar.encryptStr('}', ['13 8', ' ']));
+// console.log(CharVar.dencryptStr('*', ['13 8', ' ']), CharVar.charList.range);
 
 
 // For node only
