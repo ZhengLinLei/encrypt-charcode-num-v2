@@ -157,7 +157,7 @@ class KeyStr{
 
         // IF tmpkey EXIST CHOOSE THE tmpkey
         if(tmpkey){
-            if(typeof key == 'string'){
+            if(typeof tmpkey[0] == 'string' || tmpkey.length == 2){
                 key = this.strToArr(tmpkey[0], tmpkey[1]);
             }else{
                 key = tmpkey;
@@ -203,7 +203,7 @@ class KeyStr{
         var key, index, charcode, eChar, eStr; // INIT THE KEY FOR ENCRYPT
 
         if(tmpkey){
-            if(typeof key == 'string'){
+            if(typeof tmpkey[0] == 'string' || tmpkey.length == 2){
                 key = this.strToArr(tmpkey[0], tmpkey[1]);
             }else{
                 key = tmpkey;
@@ -271,8 +271,8 @@ class KeyStr{
 
 // CharVar.importCharList(Charcode);
 
-// console.log(CharVar.encryptStr('e', ['13 8', ' ']));
-// console.log(CharVar.dencryptStr('c', ['13 8', ' ']), CharVar.charList.range);
+// console.log(CharVar.encryptStr('abc', [1, 4, 2]));
+// console.log(CharVar.dencryptStr('bfe', [1, 4, 2]), CharVar.charList.range);
 
 
 // For node only
