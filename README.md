@@ -26,14 +26,14 @@ If you are going to use `node`, please remove the comment from the main script f
 ## Table of content
 
 1. [KeyStr()](#keystr)
-  * [Change key](#change-key)
-  * [Encrypt content](#encrypt)
-  * [Dencrypt content](#dencrypt)
-  * [Import charcode list](#importlist)
-  * [Examples of code](#example)
+  1.1 [Change key](#change-key)
+  1.2 [Encrypt content](#encrypt)
+  1.3 [Dencrypt content](#dencrypt)
+  1.4 [Import charcode list](#importlist)
+  1.5 [Examples of code](#example)
 2. [OwnCharList()](#ownchar)
-  * [Parameters](#param)
-  * [Create own list](#ownlist)
+  2.1 [Parameters](#param)
+  2.2 [Create own list](#ownlist)
 3. [Examples](#code)
 
 ## 1. <a name="keystr"></a> new KeyStr(:key, :str)
@@ -59,7 +59,7 @@ let ClassChar = new KeyStr('10|30|11', '|') // SPLIT THE TEXT WITH '|'
 ClassChar.changeKey('2,8', ',') // THIS MUST CHANGE THE KEY FROM [10, 30, 11] TO [2, 8]
 ```
 
-### 1.3. <a name="encrypt"></a> Encrypt content
+### 1.2. <a name="encrypt"></a> Encrypt content
 
 The `encryptStr()` method help you to encrypt the text, there a two ways to encrypt. One by temporal key or with the key that was initialized.
 ```javascript
@@ -83,7 +83,7 @@ console.log(ClassChar.encryptStr('Hello', ['8|3|1', '|']))
 
 ```
 
-### 1.4. <a name="dencrypt"></a> Dencrypt content
+### 1.2. <a name="dencrypt"></a> Dencrypt content
 
 And if you want to dencrypt you can do it with `dencryptStr()` method, there a two ways to encrypt. One by temporal key or with the key that was initialized.
 ```javascript
@@ -107,7 +107,7 @@ console.log(ClassChar.dencryptStr('Phmtr', ['8|3|1', '|']))
 
 ```
 
-### 1.5. <a name="importlist"></a> Import charcode list
+### 1.4. <a name="importlist"></a> Import charcode list
 
 If you want to use another charcode list apart from the default (utf-7) ASCII list or your own list, jump to the [OwnCharList()](#ownchar) section and then continue reading this part.
 
@@ -138,7 +138,7 @@ console.log(CharVar.dencryptStr('icasw', ['4 5 3', ' ']));
 ```
 
 
-### 1.6. <a name="example"></a> Examples of code
+### 1.5. <a name="example"></a> Examples of code
 
 ```javascript
 let CharVar = new KeyStr('0')
