@@ -26,14 +26,14 @@ If you are going to use `node`, please remove the comment from the main script f
 ## Table of content
 
 1. [KeyStr()](#keystr)
-  1.1 [Change key](#change-key)
-  1.2 [Encrypt content](#encrypt)
-  1.3 [Dencrypt content](#dencrypt)
-  1.4 [Import charcode list](#importlist)
-  1.5 [Examples of code](#example)
+    1.1 [Change key](#change-key)
+    1.2 [Encrypt content](#encrypt)
+    1.3 [Dencrypt content](#dencrypt)
+    1.4 [Import charcode list](#importlist)
+    1.5 [Examples of code](#example)
 2. [OwnCharList()](#ownchar)
-  2.1 [Parameters](#param)
-  2.2 [Create own list](#ownlist)
+    2.1 [Parameters](#param)
+    2.2 [Create own list](#ownlist)
 3. [Examples](#code)
 
 ## 1. <a name="keystr"></a> new KeyStr(:key, :str)
