@@ -213,7 +213,23 @@ class KeyStr{
         // REMOVE THE KEY
         charcode.forEach(el =>{
             let result = el - key[index];
-            result = result < (this.charList.type != 'own' ? 32 : 0) ? (Math.abs(result % this.charList.range) + (!Math.abs(result % this.charList.range) ? 0 : 1)) - (this.charList.type != 'own' ? 32 : 0) : result; // Remove 32 first empty char
+            //Remove 32
+            if(result <= 64 && this.charList.type != 'own'){
+                result -= 32;
+            }
+            
+            if(result < 0){
+                if(Math.abs(result) > this.charList.range){
+                    let s = Math.abs(result % this.charList.range);
+                    if(s){
+                        result = this.charList.range - s;
+                    }else{
+                        result = s;
+                    }
+                }else{
+                    result = this.charList.range - Math.abs(result);
+                }
+            }
             eChar.push(result);
 
             //BACK TO INDEX 0
@@ -244,8 +260,8 @@ class KeyStr{
 
 // CharVar.importCharList(Charcode);
 
-// console.log(CharVar.encryptStr('}', ['13 8', ' ']));
-// console.log(CharVar.dencryptStr('*', ['13 8', ' ']), CharVar.charList.range);
+// console.log(CharVar.encryptStr('e', ['13 8', ' ']));
+// console.log(CharVar.dencryptStr('c', ['13 8', ' ']), CharVar.charList.range);
 
 
 // For node only
