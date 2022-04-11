@@ -172,6 +172,7 @@ class KeyStr{
 
         // CONVERT TEXT TO CHARCODE
         str.split('').forEach(el => {
+            el = el.toString(); // Int to string
             charcode.push(this.charList.type == 'own' ? this.charList.list.indexOf(el) : el.charCodeAt());
         });
 
@@ -180,6 +181,7 @@ class KeyStr{
 
             let result = el + key[index];
             result = result >= this.charList.range ? Math.abs((result) % this.charList.range) + (this.charList.type != 'own' ? 32 : 0) : result; // Remove 32 first empty char
+
             eChar.push(result);
 
             //BACK TO INDEX 0
@@ -218,6 +220,7 @@ class KeyStr{
 
         // CONVERT TEXT TO CHARCODE
         str.split('').forEach(el => {
+            el = el.toString(); // Int to string
             charcode.push(this.charList.type == 'own' ? this.charList.list.indexOf(el) : el.charCodeAt());
         });
 
@@ -225,7 +228,7 @@ class KeyStr{
         charcode.forEach(el =>{
             let result = el - key[index];
             //Remove 32
-            if(result <= 64 && this.charList.type != 'own'){
+            if(result < 32 && this.charList.type != 'own'){
                 result -= 32;
             }
             
@@ -241,6 +244,7 @@ class KeyStr{
                     result = this.charList.range - Math.abs(result);
                 }
             }
+
             eChar.push(result);
 
             //BACK TO INDEX 0
@@ -260,9 +264,9 @@ class KeyStr{
     }
 }
 
-// let CharVar = new KeyStr('0');
+// let CharVar = new KeyStr('30 20 10', ' ');
 
-// let Chacode = new OwnCharList('utf-8');
+// let Charcode = new OwnCharList('utf-32');
 
 // let ownlist = 'abcde'.split('');
 // let ownlist = ['b', 'a', 'c', 'd', 'f', 'e', 'g', 'l', 'w', 'h', 'j', 's', 'i', 'o', 'r', ' '];
@@ -271,8 +275,12 @@ class KeyStr{
 
 // CharVar.importCharList(Charcode);
 
-// console.log(CharVar.encryptStr('abc', [1, 4, 2]));
-// console.log(CharVar.dencryptStr('bfe', [1, 4, 2]), CharVar.charList.range);
+// let txt = CharVar.encryptStr('This is a example text with space to test the software. The latin vocals with accent will not be showed in UTF-7 and the numbers are not included in the Unicode system. Example: áñiò123')
+// let txt = CharVar.encryptStr('z');
+// let txt = CharVar.encryptStr('012');
+
+// console.log("Encode", txt);
+// console.log(CharVar.dencryptStr(txt), CharVar.charList.range);
 
 
 // For node only
